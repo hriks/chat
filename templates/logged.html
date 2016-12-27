@@ -10,11 +10,11 @@
   <meta name="description" content="">
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobirise-icons.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/mbr-additional.css') }}" type="text/css">
   
   
   
@@ -62,11 +62,11 @@
     </div>
 </section>
 
-
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
-  <script src="assets/mobirise/js/script.js"></script>
+<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{url_for('static', filename='js/SmoothScroll.js')}}"></script>
+  <script src="{{url_for('static', filename='js/jarallax.js')}}"></script>
+  <script src="{{url_for('static', filename='js/script.js') }}"></script>
   
   
 </body>

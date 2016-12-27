@@ -10,11 +10,12 @@
   <meta name="description" content="">
   <title>Register_chat</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobirise-icons.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/mbr-additional.css') }}" type="text/css">
+  
   
   
   
@@ -34,7 +35,7 @@
                 <div class="mbr-navbar__column mbr-navbar__menu">
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column">
-                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="register.html">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#top">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="faq.html">FAQ</a></li></ul>                            
+                             <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('home')}}">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('contact')}}">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('faq')}}">FAQ</a></li></ul>                               
                             
                         </div>
                     </nav>
@@ -44,7 +45,7 @@
     </div>
 </section>
 
-<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header4-8" style="background-image: url(assets/images/bg.jpg);">
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header4-8" style="background-image: url(static/img/bg.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center">
         
         <div class="mbr-box__container mbr-section__container container">
@@ -54,46 +55,46 @@
                         <p class="mbr-hero__subtext">Chat care free without worry it's a open Source Chat Platform just Register here
                         </p>                    
                         <p class="mbr-section-lead lead">                  
-                          <form action = "registform" id="reg" method = post>
+                          <form action = "register" id="reg" method = "post">
                             <p align="left">
                               <font style="color: white">
                                 <b>User ID:</b> 
                               </font><br>
-                              <input id =field3 name="field3" type = "text" ng-model="c" placeholder = "User ID" size="40">
+                              <input id =userid name="userid" type = "text" placeholder = "User ID" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Referral id</b>
                               </font><br>
-                              <input id =field5 name="field5" type = "text" ng-model="e" placeholder = "For friends to connect" size="40">
+                              <input id =referralid name="referralid" type = "text" placeholder = "For friends to connect" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Name:</b>
                               </font><br>
-                              <input id =field1 name="field1" type = "text" ng-model="a" placeholder = "Full Name" size="40">
+                              <input id =name name="name" type = "text" placeholder = "Full Name" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                               <b>Email ID:</b>
                               </font><br>
-                              <input id =field2 name="field2" type = "text" ng-model="b" placeholder = "Email ID here" size="40">
+                              <input id =emailid name="emailid" type = "text" placeholder = "Email ID here" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Phone no:</b>
                               </font><br>
-                              <input id =field5 name="field5" type = "text" ng-model="e" placeholder = "Phone no with country code" size="40">
+                              <input id =phone name="phone" type = "text" placeholder = "Phone no with country code" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Password:</b>
                               </font><br>
-                              <input id =field4 name="field4" type = "password" ng-model="d" placeholder = "Password " size="40">
+                              <input id =password style="color: black" name="password" type = "password" placeholder = "Password " size="40">
                             </p>
-                            <div class="mbr-buttons btn-inverse mbr-buttons--center">
-                              <input class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" type="submit" value=" Register Me!" />
-                            </div>
+                            <p class="mbr-buttons btn-inverse mbr-buttons--center">
+                              <input class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" type="submit" />
+                            </p>
                             
                           </form>
                         </p>
@@ -108,11 +109,12 @@
 </section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
-  <script src="assets/mobirise/js/script.js"></script>
+ <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{url_for('static', filename='js/SmoothScroll.js')}}"></script>
+  <script src="{{url_for('static', filename='js/jarallax.js')}}"></script>
+  <script src="{{url_for('static', filename='js/script.js') }}"></script>
+  
   
   
 </body>

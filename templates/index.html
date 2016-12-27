@@ -9,12 +9,12 @@
   <meta name="description" content="">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/socicon/css/socicon.min.css">
-  <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobirise-icons.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/socicon.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/mbr-additional.css') }}" type="text/css">
   
   
   
@@ -34,7 +34,7 @@
                 <div class="mbr-navbar__column mbr-navbar__menu">
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column">
-                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="register.html">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#top">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="faq.html">FAQ</a></li></ul>                            
+                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('home')}}">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('registration')}}">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('contact')}}">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('faq')}}">FAQ</a></li></ul>                            
                             
                         </div>
                     </nav>
@@ -44,7 +44,7 @@
     </div>
 </section>
 
-<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header4-f" style="background-image: url(assets/images/full-unsplash-photo-1478397453044-17bb5f994100-2000x2666-85.jpg);">
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header4-f" style="background-image: url(static/img/full-unsplash-photo-1478397453044-17bb5f994100-2000x2666-85.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center">
         
         <div class="mbr-box__container mbr-section__container container">
@@ -54,8 +54,9 @@
                         <h1 class="mbr-hero__text">SANDY-CHAT</h1>
                         <p class="mbr-hero__subtext">Care free private chat on Open source chat platform.</p>
                     </div>
-                    Error:{{ error }} {% endif %}</p>
-                          <form action = "" method = post style="text-align: center; color = red">
+                    {% if error %}
+Error:{{ error }} {% endif %}</p>
+                          <form action="" method = post style="text-align: center; color = red">
                             <p>
                               <font style="color: white">
                                 <strong> User ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
@@ -70,7 +71,8 @@
                             </p>
                             <p>
                               <div class=>
-                                <a class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" href="forgot_pass.html">FORGET PASSWORD
+                                <a class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" 
+                                href="{{url_for('password_help')}} ">FORGET PASSWORD
                                 </a> 
                                 <input class="mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" type = submit value = "SIGN IN" style="color: red" />
                               </div>
@@ -111,12 +113,12 @@
 </section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
-  <script src="assets/social-likes/social-likes.js"></script>
-  <script src="assets/mobirise/js/script.js"></script>
+  <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{url_for('static', filename='js/SmoothScroll.js')}}"></script>
+  <script src="{{url_for('static', filename='js/jarallax.js')}}"></script>
+  <script src="{{url_for('static', filename ='js/social-likes.js')}}"></script>
+  <script src="{{url_for('static', filename='js/script.js') }}"></script>
   
   
 </body>

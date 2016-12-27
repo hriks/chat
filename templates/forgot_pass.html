@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Site made with Mobirise Website Builder v3.10.4, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v3.10.4, mobirise.com">
@@ -10,11 +9,12 @@
   <meta name="description" content="">
   <title>Recovery</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobirise-icons.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/mbr-additional.css') }}" type="text/css">
+  
   
   
   
@@ -34,7 +34,7 @@
                 <div class="mbr-navbar__column mbr-navbar__menu">
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column">
-                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="register.html">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#top">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="faq.html">FAQ</a></li></ul>                            
+                             <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('home')}}">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('registration')}}">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('contact')}}">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('faq')}}">FAQ</a></li></ul>                                
                             
                         </div>
                     </nav>
@@ -44,7 +44,7 @@
     </div>
 </section>
 
-<section class="engine"><a rel="external" href="https://mobirise.com">best responsive web maker</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header2-e" style="background-image: url(assets/images/bg2.jpg);">
+<section class="engine"><a rel="external" href="https://mobirise.com">best responsive web maker</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header2-e" style="background-image: url(static/img/bg2.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-left mbr-after-navbar">
         
         <div class="mbr-box__container mbr-section__container container">
@@ -53,8 +53,14 @@
                     <div class="mbr-hero animated fadeInUp">
                         <h1 class="mbr-hero__text">HOLD A BREATH WE WILL RESET YOUR PASSWORD AND SEND TO YOURS EMAIL&nbsp;</h1>
                         <p class="mbr-hero__subtext">Please enter Registered EMAIL</p>
+                        <p class="mbr-hero__subtext">
+                        <form id ="email_finder">
+
+                        <input type="text" name="email_finder" placeholder="Please Enter your Email"></p>
                     </div>
-                    <div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="#top">FIND ME</a></div>
+                    <div class="mbr-buttons btn-inverse mbr-buttons--left">
+                    <input class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" type="submit" value=" FIND ME!" /></div></form>
+
                 </div></div>
             </div></div>
         </div>
@@ -63,11 +69,13 @@
 </section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/SmoothScroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
-  <script src="assets/mobirise/js/script.js"></script>
+  <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{url_for('static', filename='js/SmoothScroll.js')}}"></script>
+  <script src="{{url_for('static', filename='js/jarallax.js')}}"></script>
+  <script src="{{url_for('static', filename='js/script.js') }}"></script>
+  
+  
   
   
 </body>

@@ -3,10 +3,10 @@ import psycopg2 as pg
 
 def get_connection():
     conn = pg.connect(
-        database='dkmkicoa',
-        user='dkmkicoa',
-        password='_d3TVkeZNgz2rumJW5KDbF_XzLb8cNQm',
-        host='horton.elephantsql.com',
+        database='pghmpgde',
+        user='pghmpgde',
+        password='o_QTqNZ0fagtZmjdc9NsUnBW-S3OKgFP',
+        host='elmer-02.db.elephantsql.com',
         port=5432)
     return conn
 
@@ -32,13 +32,13 @@ def create_db():
         return error
 
 
-def insert_catagories(USER, CATAGORIES, PRICE, DESCRIPTION):
+def register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection = get_connection()
     cursor = connection.cursor()
     print "cur is created"
-    query = """INSERT INTO LOGSS(USERID,CATAGORIES,PRICE,DESCRIPTION) VALUES('%s', '%s', %s, '%s');"""
+    query = """INSERT INTO LOGS(USERID,REFERRALID,NAME,EMAIL,PHONE,PASSWORD) VALUES('%s', '%s', '%s', '%s', %s, '%s');"""
     query = query % (
-        USER, CATAGORIES, PRICE, DESCRIPTION)
+        USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD)
     print query
     cursor.execute(query)
     connection.commit()
@@ -46,38 +46,31 @@ def insert_catagories(USER, CATAGORIES, PRICE, DESCRIPTION):
     connection.close()
 
 
-def catagory_alreadyexits(USER, CATAGORIES, PRICE, DESCRIPTION):
+def register_me(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection = get_connection()
+    print "connection created"
     cursor = connection.cursor()
-    query = """SELECT USERID from LOGSS where CATAGORIES='%s';"""
-    query = query % (CATAGORIES, )
+    query = """SELECT USERID from LOGS where USERID='%s';"""
+    query = query % (USERID)
     cursor.execute(query)
     rows = cursor.fetchall()
+    connection.close
+    print rows
     try:
         if (len(rows) == 0):
-            insert_catagories(USER, CATAGORIES, PRICE, DESCRIPTION)
+            register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD)
+            return 0
         else:
             return 1
     except Exception as error:
         return error
 
 
-def filter_user_chart(USER):
-    connection = get_connection()
-    cursor = connection.cursor()
-    fetch_db = """select catagories,sum(price) from logss where userid='%s' group by catagories"""
-    fetch_db = fetch_db % (USER)
-    cursor.execute(fetch_db)
-    rows = cursor.fetchall()
-    print "Operation done successfully"
-    cursor.close()
-    return rows
-
-
 def filter_user_data(USER):
     connection = get_connection()
     cursor = connection.cursor()
-    fetch_db = """SELECT USERID, CATAGORIES, PRICE, DESCRIPTION  from LOGSS where USERID='%s'"""
+    fetch_db = """SELECT USERID, CATAGORIES, PRICE,
+     DESCRIPTION  from LOGSS where USERID='%s'"""
     fetch_db = fetch_db % (USER)
     cursor.execute(fetch_db)
     rows = cursor.fetchall()
@@ -90,7 +83,8 @@ def insert_db(USER, NAME, EMAIL, PASSWORDV):
     connection = get_connection()
     cursor = connection.cursor()
     print "cur is created"
-    query = """INSERT INTO LOGS(USERID,NAME,EMAIL,PASSWORD) VALUES('%s', '%s', '%s', '%s');"""
+    query = """INSERT INTO LOGS(USERID,NAME,
+    EMAIL,PASSWORD) VALUES('%s', '%s', '%s', '%s');"""
     query = query % (
         USER, NAME, EMAIL, PASSWORDV)
     print query
@@ -120,7 +114,8 @@ def user_alreadyexits(USER, NAME, EMAIL, PASSWORDV):
 def authenticate(username, password):
     connection = get_connection()
     cursor = connection.cursor()
-    query = """SELECT USERID, PASSWORD from LOGS where USERID='%s' and PASSWORD='%s';"""
+    query = """SELECT USERID, PASSWORD from LOGS
+     where USERID='%s' and PASSWORD='%s';"""
     query = query % (username, password)
     cursor.execute(query)
     rows = cursor.fetchall()

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fill the form to Contact or Call me</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v3.9.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/new.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/bootstrap-material-design-font/css/material.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/web/assets/mobirise-icons/mobirise-icons.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/et-line-font-plugin/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/tether/tether.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/animate.css/animate.min.css')}} ">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='add_on/mobirise/css/mbr-additional.css')}}" type="text/css">
+  
+  
+  
+</head>
+<body>
+<section id="menu-6">
+
+    <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
+        <div class="container">
+
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+
+                    <div class="navbar-brand">
+                        <span class="navbar-logo"><span class="mbri-android mbr-iconfont mbr-iconfont-menu"></span></span>
+                        <a class="navbar-caption" href="">AndroZDi Production</a>
+                    </div>
+
+                </div>
+                <div class="mbr-table-cell">
+
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
+                    </button>
+
+                    <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('home')}}">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('registration')}}">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('contact')}}">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('faq')}}">FAQ</a></li></ul>    
+                        <div class="close-icon"></div>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</section>
+
+<section class="mbr-footer mbr-section mbr-section-md-padding mbr-after-navbar" id="contacts3-q" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
+
+
+    <div class="row">
+    
+            <div class="mbr-company col-xs-12 col-md-6 col-lg-3">
+
+                <div class="mbr-company card">
+                    <div><span class="mbri-credit-card mbr-iconfont mbr-iconfont-logo-contacts3"></span></div>
+                    <div class="card-block">
+                        <p class="card-text">Contact us .</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="list-group-icon"><span class="etl-icon icon-phone mbr-iconfont-company-contacts3"></span></span>
+                            <span class="list-group-text">+919563926347&nbsp;</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="list-group-icon"><span class="etl-icon icon-map-pin mbr-iconfont-company-contacts3"></span></span>
+                            <span class="list-group-text">HSR Layout,<br>Bengaluru</span>
+                        </li>
+                        <li class="list-group-item active">
+                            <span class="list-group-icon"><span class="etl-icon icon-envelope mbr-iconfont-company-contacts3"></span></span>
+                            <span class="list-group-text">hriks<a href="mailto:hriks@outlook.com">@outlook.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mbr-footer-content col-xs-12 col-md-6 col-lg-3">
+                <h4></h4>
+                <ul></ul>
+            </div>
+            <div class="mbr-footer-content col-xs-12 col-md-6 col-lg-3">
+                <p><strong>Contacts</strong><br>Email: hriks@outlook.com<br>Phone: +919564926347<br><br><br><br><strong>Address</strong><br>HSR Layout,<br>Bengaluru, India</p>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3" data-form-type="contact_sub">
+
+                <div data-form-alert="true">
+                    <div data-form-alert-success="true"><b>CONTACT FORM</b><font style="color: red; font-size: '18'" ><b><br>{% with messages = get_flashed_messages() %}{% if messages %}{% for message in messages %}
+      {{ message }}{% endfor %}{% endif %}{% endwith %}{% block body %}{% endblock %}</b></font></div>
+                </div>
+
+                <form action="contact_sub" method=post data-form-title="contact_sub">
+
+                    <input type="hidden" value="cjqgmL3uUazswbbPWchRaEGOmDWgs0OLVvI8CK+vPSK0AP0Je6XEBk7aOQRvENn2nsMRBaYadP9SQIFaqkxWoVF5kHK+SDvuKeHg9jl7ixT5mEf4hE1Ejj4BuXOZWFWq" data-form-email="true">
+
+                    
+
+                  
+                        <label class="form-control-label" for="contacts3-q-email">Email<span class="form-asterisk">*</span></label>
+                        <input type="email" class="form-control input-sm input-inverse" id="email" name="email" required="" data-form-field="Email">
+                    
+
+
+                    
+                        <label class="form-control-label" for="contacts3-q-message">Phone*</label>
+                        <input type="text" class="form-control input-sm input-inverse" id="Phone" name="Phone" data-form-field="Message"></textarea>
+                    
+
+
+                  
+                        <label class="form-control-label" for="contacts3-q-message">Message</label>
+                        <textarea class="form-control input-sm input-inverse" id="message" name="message" data-form-field="Message" rows="5"></textarea>
+                    
+
+                    <input type = "submit" class="btn btn-sm btn-black" />
+
+                </form>
+
+            </div>
+        </div>
+</section>
+
+<footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-5" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+    
+    <div class="container">
+        <p class="text-xs-center">Copyright (c) 2016 AndroZDI Production.</p>
+    </div>
+</footer>
+
+
+  <script src="{{url_for('static', filename='add_on/web/assets/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/tether/tether.min.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/smooth-scroll/SmoothScroll.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/viewportChecker/jquery.viewportchecker.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/dropdown/js/script.min.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on//touchSwipe/jquery.touchSwipe.min.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/theme/js/script.js')}}"></script>
+  <script src="{{url_for('static', filename='add_on/formoid/formoid.min.js')}}"></script>
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>
