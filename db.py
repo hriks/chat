@@ -54,14 +54,14 @@ def register_me(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     query = query % (USERID)
     cursor.execute(query)
     rows = cursor.fetchall()
-    connection.close
+    connection.close()
     print rows
     try:
         if (len(rows) == 0):
             register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD)
-            return 0
-        else:
             return 1
+        else:
+            return 0
     except Exception as error:
         return error
 

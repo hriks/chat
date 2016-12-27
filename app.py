@@ -40,10 +40,10 @@ def contact():
     return render_template('contactus.html')
 
 
-@app.route('/register', methods=['POST'])
-def register():
+@app.route('/registerme', methods=['POST'])
+def registerme():
     a = request.form['userid']
-    dataaa = db.register_me(request.form['referralid'], request.form['name'], request.form['email'], request.form['phone'], request.form['password'])
+    dataaa = db.register_me(a, request.form['referralid'], request.form['name'], request.form['email'], request.form['phone'], request.form['password'])
     if (dataaa == 1):
         return redirect(url_for('login'))
     else:
