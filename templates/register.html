@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Site made with Mobirise Website Builder v3.10.4, https://mobirise.com -->
+ 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v3.10.4, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{url_for('static', filename='img/logo.png')}}" type="image/x-icon">
   <meta name="description" content="">
   <title>Register_chat</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
@@ -55,42 +55,42 @@
                         <p class="mbr-hero__subtext">Chat care free without worry it's a open Source Chat Platform just Register here
                         </p>                    
                         <p class="mbr-section-lead lead">                  
-                          <form action = "/registerme" id="reg" method = "post">
+                          <form action = "registerme" id="reg" method = post>
                             <p align="left">
                               <font style="color: white">
                                 <b>User ID:</b> 
                               </font><br>
-                              <input id =userid name="userid" type = "text" placeholder = "User ID" size="40" style="color: black">
+                              <input id ="userid" name="userid" type = "text" placeholder = "User ID" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Referral id</b>
                               </font><br>
-                              <input id =referralid name="referralid" type = "text" placeholder = "For friends to connect" size="40" style="color: black">
+                              <input id ="referralid" name="referralid" type = "text" placeholder = "For friends to connect" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Name:</b>
                               </font><br>
-                              <input id =name name="name" type = "text" placeholder = "Full Name" size="40" style="color: black">
+                              <input id ="fullname" name="fullname" type = "text" placeholder = "Full Name" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                               <b>Email ID:</b>
                               </font><br>
-                              <input id =emailid name="emailid" type = "text" placeholder = "Email ID here" size="40" style="color: black">
+                              <input id ="emailid" name="emailid" type = "text" placeholder = "Email ID here" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Phone no:</b>
                               </font><br>
-                              <input id =phone name="phone" type = "text" placeholder = "Phone no with country code" size="40" style="color: black">
+                              <input id ="phone" name="phone" type = "text" placeholder = "Phone no with country code" size="40" style="color: black">
                             </p>
                             <p align="left">
                               <font style="color: white">
                                 <b>Password:</b>
                               </font><br>
-                              <input id =password style="color: black" name="password" type = "password" placeholder = "Password " size="40">
+                              <input id ="password" style="color: black" name="password" type = "password" placeholder = "Password " size="40">
                             </p>
                             <p class="mbr-buttons btn-inverse mbr-buttons--center">
                               <input class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" type="submit" />
