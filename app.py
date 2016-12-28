@@ -11,6 +11,11 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/log')
+def log():
+    return render_template('index.html')
+
+
 @app.route('/logina', methods=['GET', 'POST'])
 def logina():
     error = None
@@ -20,12 +25,21 @@ def logina():
             request.form['password'])
         if (value == 1):
             print "login Succesfully"
-            return render_template('logged.html')
+            session['name'] = request.form['username']
+            return render_template('logged.html', session=session)
         else:
             error = 'Invalid username or password \
             Please try again!'
-            return render_template('index.html', error=error)
-    return render_template('index.html', error=error)
+            return render_template('index.html', error=error, session=session)
+    return render_template('logged.html', error=error)
+
+
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    if 'Cache-Control' not in response.headers:
+        response.headers['Cache-Control'] = 'no-store'
+    return response
 
 
 @app.route('/reg?me?chat2')
@@ -102,6 +116,12 @@ def data_user():
         print user_data
         data = db.filter_user_data(user_data)
         return render_template('index.html', error=error, data=data)
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('log'))
 
 
 if __name__ == '__main__':

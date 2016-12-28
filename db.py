@@ -25,6 +25,22 @@ def register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection.close()
 
 
+def create_friend_data(USERID):
+    try:
+        connection = get_connection()
+        cursor = connection.cursor()
+        query = """CREATE TABLE %s(USERID       TEXT   REFERENCES LOGS(USERID)  NOT Null,
+                                  REFERRALID      TEXT   REFERENCES LOGS(REFERRALID) NOT NULL,
+                                  CHAT            TEXT     NOT NULL);"""
+        query = query % (USERID)
+        cursor.execute(query)
+        print "Friend connected successfully"
+        connection.commit()
+        connection.close()
+    except Exception as e:
+        return e
+
+
 def register_me(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection = get_connection()
     print "connection created"

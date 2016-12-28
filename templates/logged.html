@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Site made with Mobirise Website Builder v3.10.4, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v3.10.4, mobirise.com">
@@ -34,7 +33,9 @@
                 <div class="mbr-navbar__column mbr-navbar__menu">
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column">
-                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="index.html">LOGIN</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="register.html">REGISTER</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#top">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="faq.html">FAQ</a></li></ul>                            
+                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#">WELCOME</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#top">{% if session['name'] %}
+            <strong>{{session['name']}} </strong>{% else %}<a href="{{ url_for('login') }}"> PLEASE LOGIN</a>
+            {% endif %}&nbsp;</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url_for('logout')}}">LOGOUT</a></li></ul>                            
                             
                         </div>
                     </nav>
@@ -44,18 +45,92 @@
     </div>
 </section>
 
-<section class="engine"><a rel="external" href="https://mobirise.com">easy bootstrap site builder software</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-after-navbar" id="header2-a" style="background-color: rgb(76, 105, 114);">
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-after-navbar" id="header2-a" style="background-color: rgb(76, 105, 114);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-left">
         
         <div class="mbr-box__container mbr-section__container container">
             <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-left">
-                <div class="row"><div class=" col-sm-6 col-sm-offset-6">
+                <div class="row"><div class=" col-sm-6 col-sm-offset-0">
                     <div class="mbr-hero animated fadeInUp">
                         <h1 class="mbr-hero__text">WELCOME&nbsp;</h1>
                         <p class="mbr-hero__subtext"></p>
                     </div>
-                    <div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay" href="https://mobirise.com">SEND</a></div>
-                </div></div>
+
+<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
+<thead>
+<tr style="text-align: center;font-size: 14px; ">
+    <th style="border-style: solid; border-width: 1px; padding: 0">
+  <strong>Chat Box User: <em><b>{{session['name']}}</b></em></strong></font></th>
+  </tr>
+</thead>
+<tbody>
+    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
+  <b>Here Chat data
+  </b>
+    
+    
+</tr>
+</tbody>
+</table>
+
+
+                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
+                    <form action="send" >
+                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
+                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
+                    </form>
+
+                    </div>
+                </div>
+<div class=" col-sm-6 col-sm-offset-0">
+                    <div class="mbr-hero animated fadeInUp">
+                        <h1 class="mbr-hero__text">ADD FRIENDS&nbsp;</h1>
+                        <p class="mbr-hero__subtext"></p>
+                    </div>
+                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
+                    <form action="send" >
+                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
+                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
+                    </form>
+
+                    </div>
+                </div>
+
+<div class=" col-sm-6 col-sm-offset-0">
+                    <div class="mbr-hero animated fadeInUp">
+                        <h1 class="mbr-hero__text">My Friends&nbsp;</h1>
+                        <p class="mbr-hero__subtext"></p>
+                    </div>
+
+<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
+<thead>
+<tr style="text-align: center;font-size: 14px; ">
+    <th style="border-style: solid; border-width: 1px; padding: 0">
+  <strong>Chat Box User: <em><b>{{session['name']}}</b></em></strong></font></th>
+  </tr>
+</thead>
+<tbody>
+    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
+  <b>Here Chat data
+  </b>
+    
+    
+</tr>
+</tbody>
+</table>
+
+
+                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
+                    <form action="send" >
+                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
+                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
+                    </form>
+
+                    </div>
+                </div>
+
+
+                </div>
             </div></div>
         </div>
         
