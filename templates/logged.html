@@ -52,7 +52,50 @@
             <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-left">
                 <div class="row"><div class=" col-sm-6 col-sm-offset-0">
                     <div class="mbr-hero animated fadeInUp">
-                        <h1 class="mbr-hero__text">WELCOME&nbsp;</h1>
+                        <h1 class="mbr-hero__text">WELCOME&nbsp;"{{session['name']}}"</h1>
+                        <p class="mbr-hero__subtext"></p>
+                    </div>
+                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
+
+<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
+<thead>
+<tr style="text-align: center;font-size: 14px; ">
+    <th style="border-style: solid; border-width: 1px; padding: 0">
+  <strong>Chat Box User: </strong></font></th>
+  </tr>
+</thead>
+<tbody>
+    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
+  <b>Here Chat data
+  </b>   
+ </tr>
+</tbody>
+</table>             
+<form action="send" >
+                    <input type="text" name="chat" id="chat" placeholder="Typing......" style="height: 50px; width: 560px"><br>
+                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
+                    </form>
+
+                    </div>
+                </div>
+                    <div class=" col-sm-6 col-sm-offset-0">
+                    <div class="mbr-hero animated fadeInUp">
+                        <h2 style="text-align: left;">Add friend&nbsp;</h2>
+                        <p class="mbr-hero__subtext"></p>
+                    </div>
+                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
+                    <form action="send" >
+                    <input type="text" name="userid" id="chat" placeholder="userid"><br>
+                    <input type="text" name="Refferalid" id="chat" placeholder="Refferalid"><br>
+                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
+                    </form>
+
+                    </div>
+                </div>
+
+<div class=" col-sm-6 col-sm-offset-0">
+                    <div class="mbr-hero animated fadeInUp">
+                        <h2>Friend List&nbsp;</h2>
                         <p class="mbr-hero__subtext"></p>
                     </div>
 
@@ -66,7 +109,7 @@
 <tbody>
     <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
   <b>Here Chat data
-  </b>
+  </b></td>
     
     
 </tr>
@@ -74,60 +117,9 @@
 </table>
 
 
-                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
-                    <form action="send" >
-                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
-                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
-                    </form>
 
-                    </div>
-                </div>
-<div class=" col-sm-6 col-sm-offset-0">
-                    <div class="mbr-hero animated fadeInUp">
-                        <h1 class="mbr-hero__text">ADD FRIENDS&nbsp;</h1>
-                        <p class="mbr-hero__subtext"></p>
-                    </div>
-                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
-                    <form action="send" >
-                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
-                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
-                    </form>
-
-                    </div>
-                </div>
-
-<div class=" col-sm-6 col-sm-offset-0">
-                    <div class="mbr-hero animated fadeInUp">
-                        <h1 class="mbr-hero__text">My Friends&nbsp;</h1>
-                        <p class="mbr-hero__subtext"></p>
-                    </div>
-
-<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
-<thead>
-<tr style="text-align: center;font-size: 14px; ">
-    <th style="border-style: solid; border-width: 1px; padding: 0">
-  <strong>Chat Box User: <em><b>{{session['name']}}</b></em></strong></font></th>
-  </tr>
-</thead>
-<tbody>
-    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
-  <b>Here Chat data
-  </b>
-    
-    
-</tr>
-</tbody>
-</table>
-
-
-                    <div class="mbr-buttons btn-inverse mbr-buttons--right">
-                    <form action="send" >
-                    <input type="text" name="chat" id="chat" placeholder="typing......"><br>
-                    <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
-                    </form>
-
-                    </div>
-                </div>
+</div>
+</div>
 
 
                 </div>
