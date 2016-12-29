@@ -56,23 +56,28 @@
                         <p class="mbr-hero__subtext"></p>
                     </div>
                     <div class="mbr-buttons btn-inverse mbr-buttons--right">
+                    Current User: <b>{{session['name']}}</b>
+                      <table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
+                        <thead>
+                          <tr style="text-align: left;font-size: 14px; ">
+                            <th style="border-style: solid; border-width: 3px; padding: 0; text-align: left;">
+                              <strong>Type and send </strong></font>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for n in chat_box %}
+                            <tr>
+                              <td style="padding: 0; text-align: left; border-style: solid; border-width: 3px;" name = 'test'>
+                                <b> {{session['name']}} >> {{n[0]}}</b>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>          
+                      <form action="send" >
+                    <input type="text" name="chat" id="chat" placeholder="Typing......" style="text-align: right; height: 50px; width: 100%"><br>
 
-<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
-<thead>
-<tr style="text-align: center;font-size: 14px; ">
-    <th style="border-style: solid; border-width: 1px; padding: 0">
-  <strong>Chat Box User: </strong></font></th>
-  </tr>
-</thead>
-<tbody>
-    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
-  <b>Here Chat data
-  </b>   
- </tr>
-</tbody>
-</table>             
-<form action="send" >
-                    <input type="text" name="chat" id="chat" placeholder="Typing......" style="height: 50px; width: 100%"><br>
                     <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
                     </form>
 
@@ -87,37 +92,58 @@
                     <form action="friend" method = post>
                       <span style="color: white"><b>Name </b></span>
                       <input type="text" name="friendname" id="chat" placeholder="Friend Name"><br>
-                      <span style="color: white"><b>user id </b></span> 
-                      <input type="text" name="userid" id="chat" placeholder="userid"><br>
+                      <span style="color: white"><b>user id</b></span> 
+                      <input type="text" name="userid" id="chat" placeholder="your's userid"><br>
+                      <span style="color: white"><b>Friend id</b></span> 
+                      <input type="text" name="fuserid" id="chat" placeholder="friends userid"><br>
                       <span style="color: white"><b>Refferal id </b></span>
-                      <input type="text" name="Refferalid" id="chat" placeholder="Refferalid"><br>
+                      <input type="text" name="refferalid" id="chat" placeholder="friend's Refferalid"><br>
                       <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
                     </form>
+                    </div>
+                    <div class="mbr-buttons btn-inverse mbr-buttons--left">
 
                     </div>
                 </div>
 
-<div class=" col-sm-6 col-sm-offset-0">
+<div class=" col-sm-3 col-sm-offset-0">
                     <div class="mbr-hero animated fadeInUp">
                         <h2>Friend List&nbsp;</h2>
                         <p class="mbr-hero__subtext"></p>
                     </div>
 
-<table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
-<thead>
-<tr style="text-align: center;font-size: 14px; ">
-    <th style="border-style: solid; border-width: 0px; padding: 0 ";>
-  <strong>Chat Box User: <em><b>{{session['name']}}</b></em></strong></font></th>
-  </tr>
-</thead>
-<tbody>
-    <td bordercolor="#000000" style="border-style: solid; border-width: 1px; padding: 0">
-  <b>Here Chat data
-  </b></td>
-    
-    
-</tr>
-</tbody>
+<table class="table" style="padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px;">
+  <thead>
+    <tr style="text-align: center;font-size: 14px;">
+      <th style="padding: 0; background-color: white">
+        <strong>Chat Box User: 
+          <em>
+            <b>{{session['name']}}</b>
+          </em>
+        </strong>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set another = "" %}
+    {% for n in friends %}
+      <tr>
+        <td style="padding: 0; text-align: right;" name = 'test'>
+          <b>
+            <form action="show  " method="post">
+              <input type="hidden" name="test" value="{{n}}">
+              <input type= submit value="{{n}}" style="width: 100%" />
+              {% set another = n %}
+              
+
+              
+            </form>
+          </b>
+        </td>
+      </tr>
+    {% endfor %}
+    {{ another }}
+  </tbody>
 </table>
 
 

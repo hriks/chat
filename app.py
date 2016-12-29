@@ -16,32 +16,58 @@ def log():
     return render_template('index.html')
 
 
-@app.route('/logina', methods=['GET', 'POST'])
+@app.route('/logina', methods=['POST'])
 def logina():
     error = None
-    if request.method == 'POST':
-        value = authenticate_user(
-            request.form['username'],
-            request.form['password'])
-        if (value == 1):
-            print "login Succesfully"
-            session['name'] = request.form['username']
-            return render_template('logged.html', session=session)
-        else:
-            error = 'Invalid username or password \
+    value = authenticate_user(
+        request.form['username'],
+        request.form['password'])
+    if (value == 1):
+        print "login Succesfully"
+        session['name'] = request.form['username']
+        data_friend = session['name']
+        friends = friend_data(data_friend)
+        li = []
+        for i in friends:
+            li.append(i[2])
+        return render_template('logged.html', session=session, friends=li)
+    else:
+        error = 'Invalid username or password \
             Please try again!'
-            return render_template('index.html', error=error, session=session)
-    return render_template('logged.html', error=error)
+        return render_template('index.html', error=error, session=session, friends=li)
+    return render_template('logged.html')
+
+
+@app.route('/show', methods=['POST'])
+def show():
+    msg = request.form['test']
+    print msg
+    chat_box = chat_data(request.form['test'])
+    print chat_box
+    print request.form['test']
+    return render_template('logged.html', chat_box=chat_box), msg
+
+
+@app.route('/send', methods=['POST'])
+def send():
+    send_chat(request.form[''], request.form['chat'])
+    return redirect(url_for('logina'))
 
 
 @app.route('/friend', methods=['POST'])
 def friend():
-    error_user = None
     if request.method == 'POST':
-        print request.form['friendname']
-        user_value = add_friend(request.form['friendname'])
-        print user_value, error_user
-        return render_template('logged.html')
+        auth = request.form['userid']
+        if (session['name'] == auth):
+            print request.form['friendname']
+            user_value = add_friend(request.form['friendname'],
+                                    request.form['userid'],
+                                    request.form['fuserid'],
+                                    request.form['refferalid'])
+            return render_template('logged.html')
+        else:
+            return render_template('logged.html')
+    return render_template('logged.html')
 
 
 @app.after_request
@@ -75,31 +101,6 @@ def registerme():
     else:
         return render_template('register.html')
     return render_template('register.html')
-
-
-@app.route('/loggeds')
-def index():
-    error = None
-    try:
-        user_data = session['name']
-        print user_data
-        data = db.filter_user_data(user_data)
-        data_user_get = db.filter_user_chart(user_data)
-        graph_data = []
-        for elem in data_user_get:
-            cat = elem[0]
-            exp = elem[1]
-            li = [cat, int(exp)]
-            graph_data.append(li)
-        graph_data.insert(0, ['Category', 'Expenses'])
-        return render_template(
-            'index.html',
-            error=error,
-            data=data,
-            data_chart=graph_data,
-            session=session)
-    except Exception as e:
-        raise e
 
 
 @app.route('/password??')

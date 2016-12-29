@@ -25,18 +25,22 @@ def register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection.close()
 
 
-def add_friend(friend_name):
+def add_friend(friend_name, uuserid, fuserid, refferalid):
     try:
         connection = get_connection()
         cursor = connection.cursor()
-        query = """CREATE TABLE %s(USERID       TEXT   REFERENCES LOGS(USERID)  NOT Null,
-                                  REFERRALID  TEXT   REFERENCES LOGS(REFERRALID) NOT NULL,
-                                  CHAT            TEXT     NOT NULL);"""
-        query = query % (friend_name)
+        query = ('''CREATE TABLE %s
+        (%s       TEXT        NOT Null,
+        %s           TEXT    NOT NULL,
+        %s            TEXT     REFERENCES LOGS(referralid)    NOT NULL,
+        CHAT      TEXT       NOT NULL);''')
+        query = query % (friend_name, uuserid, fuserid, refferalid)
+        print query
         cursor.execute(query)
         print "Friend connected successfully"
         connection.commit()
         connection.close()
+        return 1
     except Exception as e:
         return e
 
@@ -77,3 +81,40 @@ def authenticate_user(username, password):
             return 0
     except Exception as e:
         return e
+
+
+def chat_data(name):
+    connection = get_connection()
+    cursor = connection.cursor()
+    fetch_db = """SELECT CHAT  from %s;"""
+    fetch_db = fetch_db % (name)
+    cursor.execute(fetch_db)
+    rows = cursor.fetchall()
+    print "Operation done successfully"
+    cursor.close()
+    return rows
+
+
+def friend_data(user_name):
+    connection = get_connection()
+    cursor = connection.cursor()
+    query = """select * from INFORMATION_SCHEMA.COLUMNS where COLUMN_NAME = '%s' order by TABLE_NAME"""
+    query = query % (user_name)
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    print "Operation done successfully"
+    cursor.close()
+    return rows
+
+
+def send_chat(TABLE, MESSAGE):
+    connection = get_connection()
+    cursor = connection.cursor()
+    query = """INSERT INTO %s(CHAT) VALUES('%s');"""
+    query = query % (
+        TABLE, MESSAGE)
+    print query
+    cursor.execute(query)
+    connection.commit()
+    print "Message Send created successfully"
+    connection.close()
