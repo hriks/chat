@@ -40,18 +40,29 @@ def logina():
 
 @app.route('/show', methods=['POST'])
 def show():
-    msg = request.form['test']
-    print msg
     chat_box = chat_data(request.form['test'])
     print chat_box
-    print request.form['test']
-    return render_template('logged.html', chat_box=chat_box), msg
+    msg = request.form['test']
+    data_friend = session['name']
+    friends = friend_data(data_friend)
+    li = []
+    for i in friends:
+        li.append(i[2])
+    return render_template('logged.html', session=session, friends=li, chat_box=chat_box, msg=msg)
 
 
 @app.route('/send', methods=['POST'])
 def send():
-    send_chat(request.form[''], request.form['chat'])
-    return redirect(url_for('logina'))
+    user_entry = '%s' + request.form['chat']
+    user_entry = user_entry % (session['name'] + '  >>  ')
+    s = send_chat(request.form['data'], user_entry)
+    print s
+    data_friend = session['name']
+    friends = friend_data(data_friend)
+    li = []
+    for i in friends:
+        li.append(i[2])
+    return render_template('logged.html', session=session, friends=li)
 
 
 @app.route('/friend', methods=['POST'])
@@ -64,7 +75,12 @@ def friend():
                                     request.form['userid'],
                                     request.form['fuserid'],
                                     request.form['refferalid'])
-            return render_template('logged.html')
+            data_friend = session['name']
+            friends = friend_data(data_friend)
+            li = []
+            for i in friends:
+                li.append(i[2])
+            return render_template('logged.html', session=session, friends=li)
         else:
             return render_template('logged.html')
     return render_template('logged.html')

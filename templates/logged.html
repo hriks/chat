@@ -68,14 +68,15 @@
                         <tbody>
                           {% for n in chat_box %}
                             <tr>
-                              <td style="padding: 0; text-align: left; border-style: solid; border-width: 3px;" name = 'test'>
-                                <b> {{session['name']}} >> {{n[0]}}</b>
+                              <td style="padding: 0; text-align: left; border-width: 3px;" name = 'test'>
+                                <b> {{n[0]}}</b>
                               </td>
                             </tr>
                           {% endfor %}
                         </tbody>
                       </table>          
-                      <form action="send" >
+                      <form action="send" method="post">
+                       <input type="hidden" name="data" value="{{msg}}">
                     <input type="text" name="chat" id="chat" placeholder="Typing......" style="text-align: right; height: 50px; width: 100%"><br>
 
                     <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
@@ -142,7 +143,6 @@
         </td>
       </tr>
     {% endfor %}
-    {{ another }}
   </tbody>
 </table>
 

@@ -30,9 +30,9 @@ def add_friend(friend_name, uuserid, fuserid, refferalid):
         connection = get_connection()
         cursor = connection.cursor()
         query = ('''CREATE TABLE %s
-        (%s       TEXT        NOT Null,
-        %s           TEXT    NOT NULL,
-        %s            TEXT     REFERENCES LOGS(referralid)    NOT NULL,
+        (%s       TEXT      ,
+        %s           TEXT   ,
+        %s            TEXT  ,
         CHAT      TEXT       NOT NULL);''')
         query = query % (friend_name, uuserid, fuserid, refferalid)
         print query
