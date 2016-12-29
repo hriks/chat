@@ -25,14 +25,14 @@ def register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection.close()
 
 
-def create_friend_data(USERID):
+def add_friend(friend_name):
     try:
         connection = get_connection()
         cursor = connection.cursor()
         query = """CREATE TABLE %s(USERID       TEXT   REFERENCES LOGS(USERID)  NOT Null,
-                                  REFERRALID      TEXT   REFERENCES LOGS(REFERRALID) NOT NULL,
+                                  REFERRALID  TEXT   REFERENCES LOGS(REFERRALID) NOT NULL,
                                   CHAT            TEXT     NOT NULL);"""
-        query = query % (USERID)
+        query = query % (friend_name)
         cursor.execute(query)
         print "Friend connected successfully"
         connection.commit()

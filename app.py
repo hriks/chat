@@ -34,6 +34,16 @@ def logina():
     return render_template('logged.html', error=error)
 
 
+@app.route('/friend', methods=['POST'])
+def friend():
+    error_user = None
+    if request.method == 'POST':
+        print request.form['friendname']
+        user_value = add_friend(request.form['friendname'])
+        print user_value, error_user
+        return render_template('logged.html')
+
+
 @app.after_request
 def add_header(response):
     # response.cache_control.no_store = True
