@@ -40,29 +40,33 @@ def logina():
 
 @app.route('/show', methods=['POST'])
 def show():
-    chat_box = chat_data(request.form['test'])
-    print chat_box
+    session['test'] = request.form['test']
+    test = session['test']
+    chat_boxx = chat_data(request.form['test'])
+    chat_box = chat_boxx[::-1]
     msg = request.form['test']
     data_friend = session['name']
     friends = friend_data(data_friend)
     li = []
     for i in friends:
         li.append(i[2])
-    return render_template('logged.html', session=session, friends=li, chat_box=chat_box, msg=msg)
+    return render_template('logged.html', session=session, friends=li, chat_box=chat_box, msg=msg, test=test)
 
 
 @app.route('/send', methods=['POST'])
 def send():
+    show_data = session['test']
+    chat_box = chat_data(show_data)
     user_entry = '%s' + request.form['chat']
     user_entry = user_entry % (session['name'] + '  >>  ')
-    s = send_chat(request.form['data'], user_entry)
+    s = send_chat(show_data, user_entry)
     print s
     data_friend = session['name']
     friends = friend_data(data_friend)
     li = []
     for i in friends:
         li.append(i[2])
-    return render_template('logged.html', session=session, friends=li)
+    return render_template('logged.html', session=session, friends=li, chat_box=chat_box)
 
 
 @app.route('/friend', methods=['POST'])

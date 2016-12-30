@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/mbr-additional.css') }}" type="text/css">
+  <script src="static/js/jquery-1.9.0.js"> </script>
   
   
   
@@ -56,31 +57,39 @@
                         <p class="mbr-hero__subtext"></p>
                     </div>
                     <div class="mbr-buttons btn-inverse mbr-buttons--right">
-                    Current User: <b>{{session['name']}}</b>
-                      <table class="table" style="border-style:outset; border-width:1px; border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
+                    <pre>Current User: <b>{{session['name']}}</b></pre>
+                      <table class="table" style="border-collapse:collapse; padding-left:4px; padding-right:1px; padding-top:1px; padding-bottom:1px; background-color : #E5DDDB;">
                         <thead>
                           <tr style="text-align: left;font-size: 14px; ">
                             <th style="border-style: solid; border-width: 3px; padding: 0; text-align: left;">
-                              <strong>Type and send </strong></font>
+                              <strong><pre>Active chat : {{test}} </pre></strong>
                             </th>
                           </tr>
                         </thead>
-                        <tbody>
-                          {% for n in chat_box %}
+                        <tbody style="display: block; height: 100px; overflow-y: scroll; padding: 0" >
+                        {{diesel}}
+                          {% for n in chat_box %}  
+                          
                             <tr>
-                              <td style="padding: 0; text-align: left; border-width: 3px;" name = 'test'>
+                              <td style="text-align: left; padding: 0; text-align: left; border-width: 3px;" name = 'test'>
                                 <b> {{n[0]}}</b>
                               </td>
                             </tr>
                           {% endfor %}
                         </tbody>
                       </table>          
-                      <form action="send" method="post">
-                       <input type="hidden" name="data" value="{{msg}}">
+                      <form action="send" method="post" role="form">
+                       <input type="hidden" name="data" value="{{msg}}"><input type="hidden" name="showdata" value="{{test}}">
                     <input type="text" name="chat" id="chat" placeholder="Typing......" style="text-align: right; height: 50px; width: 100%"><br>
 
                     <input type="submit" name="Send" class="mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay">
                     </form>
+
+
+
+
+
+
 
                     </div>
                 </div>
@@ -126,7 +135,6 @@
     </tr>
   </thead>
   <tbody>
-    {% set another = "" %}
     {% for n in friends %}
       <tr>
         <td style="padding: 0; text-align: right;" name = 'test'>
