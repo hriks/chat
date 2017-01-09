@@ -63,10 +63,29 @@ def show():
                            test=test)
 
 
+@app.route('/showloop')
+def showloop():
+    check = session['test']
+    print check
+    chat_boxx = chat_data(session['test'])
+    chat_box = chat_boxx[::-1]
+    msg = session['test ']
+    data_friend = session['name']
+    friends = friend_data(data_friend)
+    li = []
+    for i in friends:
+        li.append(i[2])
+    return render_template('logged.html',
+                           session=session,
+                           friends=li,
+                           chat_box=chat_box,
+                           msg=msg)
+
+
 @app.route('/send', methods=['POST'])
 def send():
     show_data = session['test']
-    chat_boxx = chat_data(request.form['test'])
+    chat_boxx = chat_data(show_data)
     chat_box = chat_boxx[::-1]
     user_entry = '%s' + request.form['chat']
     user_entry = user_entry % (session['name'] + '  >>  ')
