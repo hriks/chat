@@ -117,4 +117,4 @@ def send_chat(TABLE, MESSAGE):
     cursor.execute(query)
     connection.commit()
     print "Message Send created successfully"
-    connection.close()
+    connection.close()      
