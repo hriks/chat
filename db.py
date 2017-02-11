@@ -118,3 +118,4 @@ def send_chat(TABLE, MESSAGE):
     connection.commit()
     print "Message Send created successfully"
     connection.close()      
+# query used for chatting with friends
