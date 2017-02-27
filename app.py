@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template,\
-    request, url_for, flash, session
+    request, url_for, session
 from db import *
 
 app = Flask(__name__)
@@ -30,11 +30,16 @@ def logina():
         li = []
         for i in friends:
             li.append(i[2])
-        return render_template('logged.html', session=session, friends=li)
+        return render_template('logged.html',
+                               session=session,
+                               friends=li)
     else:
         error = 'Invalid username or password \
             Please try again!'
-        return render_template('index.html', error=error, session=session, friends=li)
+        return render_template('index.html',
+                               error=error,
+                               session=session,
+                               friends=li)
     return render_template('logged.html')
 
 
@@ -50,13 +55,38 @@ def show():
     li = []
     for i in friends:
         li.append(i[2])
-    return render_template('logged.html', session=session, friends=li, chat_box=chat_box, msg=msg, test=test)
+    return render_template('logged.html',
+                           session=session,
+                           friends=li,
+                           chat_box=chat_box,
+                           msg=msg,
+                           test=test)
+
+
+@app.route('/showloop')
+def showloop():
+    check = session['test']
+    print check
+    chat_boxx = chat_data(session['test'])
+    chat_box = chat_boxx[::-1]
+    msg = session['test ']
+    data_friend = session['name']
+    friends = friend_data(data_friend)
+    li = []
+    for i in friends:
+        li.append(i[2])
+    return render_template('logged.html',
+                           session=session,
+                           friends=li,
+                           chat_box=chat_box,
+                           msg=msg)
 
 
 @app.route('/send', methods=['POST'])
 def send():
     show_data = session['test']
-    chat_box = chat_data(show_data)
+    chat_boxx = chat_data(show_data)
+    chat_box = chat_boxx[::-1]
     user_entry = '%s' + request.form['chat']
     user_entry = user_entry % (session['name'] + '  >>  ')
     s = send_chat(show_data, user_entry)
@@ -66,7 +96,10 @@ def send():
     li = []
     for i in friends:
         li.append(i[2])
-    return render_template('logged.html', session=session, friends=li, chat_box=chat_box)
+    return render_template('logged.html',
+                           session=session,
+                           friends=li,
+                           chat_box=chat_box)
 
 
 @app.route('/friend', methods=['POST'])
@@ -84,7 +117,9 @@ def friend():
             li = []
             for i in friends:
                 li.append(i[2])
-            return render_template('logged.html', session=session, friends=li)
+            return render_template('logged.html',
+                                   session=session,
+                                   friends=li)
         else:
             return render_template('logged.html')
     return render_template('logged.html')
@@ -146,7 +181,9 @@ def data_user():
         user_data = session['name']
         print user_data
         data = db.filter_user_data(user_data)
-        return render_template('index.html', error=error, data=data)
+        return render_template('index.html',
+                               error=error,
+                               data=data)
 
 
 @app.route('/logout')
