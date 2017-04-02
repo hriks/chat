@@ -15,7 +15,7 @@ def register_me_input(USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD):
     connection = get_connection()
     cursor = connection.cursor()
     print "cur is created"
-    query = """INSERT INTO LOGS(USERID,REFERRALID,NAME,EMAIL,PHONE,PASSWORD) VALUES('%s', '%s', '%s', '%s', %s, '%s');"""
+    query = """INSERT INTO LOGS(USERID,REFERRALID,NAME,EMAIL,PHONE,PASSWORD) VALUES('%s', '%s', '%s', '%s', %s, '%s');""" # noqa
     query = query % (
         USERID, REFRALID, NAME, EMAIL, PHONENO, PASSWORD)
     print query
@@ -98,7 +98,7 @@ def chat_data(name):
 def friend_data(user_name):
     connection = get_connection()
     cursor = connection.cursor()
-    query = """select * from INFORMATION_SCHEMA.COLUMNS where COLUMN_NAME = '%s' order by TABLE_NAME"""
+    query = """select * from INFORMATION_SCHEMA.COLUMNS where COLUMN_NAME = '%s' order by TABLE_NAME""" # noqa
     query = query % (user_name)
     cursor.execute(query)
     rows = cursor.fetchall()
@@ -117,5 +117,5 @@ def send_chat(TABLE, MESSAGE):
     cursor.execute(query)
     connection.commit()
     print "Message Send created successfully"
-    connection.close()      
+    connection.close()
 # query used for chatting with friends
